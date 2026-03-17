@@ -14,11 +14,11 @@ SRCS := $(OBJS:.o=.c)
 CONF := config.h
 DEPS := .depend
 OUT := redsocks2
-VERSION := 0.72
+VERSION := 0.73
 OS := $(shell uname)
 
 LIBS := -levent
-override CFLAGS += -D_BSD_SOURCE -D_DEFAULT_SOURCE -Wall
+override CFLAGS += -D_DEFAULT_SOURCE -Wall
 ifeq ($(OS), Linux)
 override CFLAGS += -std=c99 -D_XOPEN_SOURCE=600
 endif
@@ -29,7 +29,11 @@ ifeq ($(OS), OpenBSD)
 override CFLAGS +=-I/usr/local/include -L/usr/local//lib #same as FreeBSD
 endif
 ifeq ($(OS), Darwin)
-override CFLAGS +=-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib
+OPENSSL_PREFIX ?= $(shell brew --prefix openssl@3 2>/dev/null || brew --prefix openssl 2>/dev/null)
+ifneq ($(strip $(OPENSSL_PREFIX)),)
+override CFLAGS += -I$(OPENSSL_PREFIX)/include
+override LDFLAGS += -L$(OPENSSL_PREFIX)/lib
+endif
 SHELL := /bin/bash
 OSX_VERSION := $(shell sw_vers -productVersion | cut -d '.' -f 1,2)
 OSX_ROOT_PATH := xnu

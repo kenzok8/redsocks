@@ -8,8 +8,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
     - name: install depends
       run: |
         sudo apt update
@@ -17,9 +19,9 @@ jobs:
     - name: Build
       run: |
         mkdir release
-        make USE_CRYPTO_MBEDTLS=1 ENABLE_STATIC=1
+        make USE_CRYPTO_MBEDTLS=true ENABLE_STATIC=true
         mv redsocks2 release/redsocks2-`arch`-${{github.ref_name}}
     - name: Release
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v2
       with:
         files: release/*

@@ -4,12 +4,21 @@ on: [push]
 
 jobs:
   build:
+    strategy:
+      fail-fast: false
+      matrix:
+        crypto: [openssl, mbedtls]
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
     - name: install depends
       run: |
         sudo apt update
-        sudo apt install -y libevent-dev libssl-dev
+        sudo apt install -y libevent-dev libssl-dev libmbedtls-dev
     - name: Build
-      run: make
+      run: |
+        if [ "${{ matrix.crypto }}" = "mbedtls" ]; then
+          make USE_CRYPTO_MBEDTLS=true
+        else
+          make
+        fi

@@ -4,11 +4,11 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     name: A job to run test FreeBSD
     # env:
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Build in FreeBSD
       id: test
       uses: vmactions/freebsd-vm@v1
