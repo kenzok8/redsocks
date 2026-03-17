@@ -1,7 +1,7 @@
 REDSOCKS2
 =========
-[![Linux Build Status](https://github.com/semigodking/redsocks/workflows/linux_build/badge.svg)](https://github.com/semigodking/redsocks/actions)
-[![FreeBSD Build Status](https://github.com/semigodking/redsocks/workflows/freebsd_build/badge.svg)](https://github.com/semigodking/redsocks/actions)
+[![Linux Build Status](https://github.com/kenzok8/redsocks/workflows/linux_build/badge.svg)](https://github.com/kenzok8/redsocks/actions)
+[![FreeBSD Build Status](https://github.com/kenzok8/redsocks/workflows/freebsd_build/badge.svg)](https://github.com/kenzok8/redsocks/actions)
 
 This is a modified version of original redsocks.
 The name is changed to REDSOCKS2 to distinguish with original redsocks.
@@ -21,7 +21,7 @@ need of blacklist.
 10. Support port reuse ([SO_REUSEPORT](https://lwn.net/Articles/542629/)).
 11. Support IPv6.
 
-[Chinese Reference](https://github.com/semigodking/redsocks/wiki)
+[Chinese Reference](https://github.com/kenzok8/redsocks/wiki)
 
 HOW TO BUILD
 ------------
