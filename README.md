@@ -1,7 +1,7 @@
 REDSOCKS2
 =========
-[![Linux Build Status](https://github.com/kenzok8/redsocks/workflows/linux_build/badge.svg)](https://github.com/kenzok8/redsocks/actions)
-[![FreeBSD Build Status](https://github.com/kenzok8/redsocks/workflows/freebsd_build/badge.svg)](https://github.com/kenzok8/redsocks/actions)
+[![Linux Build Status](https://github.com/kenzok8/redsocks/actions/workflows/linux_build.yml/badge.svg)](https://github.com/kenzok8/redsocks/actions/workflows/linux_build.yml)
+[![FreeBSD Build Status](https://github.com/kenzok8/redsocks/actions/workflows/freebsd_build.yml/badge.svg)](https://github.com/kenzok8/redsocks/actions/workflows/freebsd_build.yml)
 
 This is a modified version of original redsocks.
 The name is changed to REDSOCKS2 to distinguish with original redsocks.
@@ -11,7 +11,7 @@ redsocks.
 1. Redirect TCP connections which are blocked via proxy automatically without
 need of blacklist.
 2. Redirect UDP based DNS requests via TCP connection.
-3. Integrated [shadowsocks](http://shadowsocks.org/) proxy support.
+3. Integrated shadowsocks proxy support.
 4. Redirect TCP connections without proxy.
 5. Redirect TCP connections via specified network interface.
 6. UDP transparent proxy via shadowsocks proxy.
@@ -63,8 +63,8 @@ To compile without shadowsocks support:
 $ make DISABLE_SHADOWSOCKS=true
 ```
 
-Since this variant of redsocks is customized for running with Openwrt, please
-read documents here (http://wiki.openwrt.org/doc/devel/crosscompile) for how
+Since this variant of redsocks is customized for running with OpenWrt, please
+read the OpenWrt cross-compilation documentation for how
 to cross compile.
 
 ### MacOS

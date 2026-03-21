@@ -8,7 +8,7 @@ jobs:
     name: A job to run test FreeBSD
     # env:
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6.0.2
     - name: Build in FreeBSD
       id: test
       uses: vmactions/freebsd-vm@v1
