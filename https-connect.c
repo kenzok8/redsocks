@@ -118,6 +118,10 @@ static int httpsc_instance_init(struct redsocks_instance_t *instance)
         log_error(LOG_ERR, "Failed to allocate SSL context. SSL Error: %s", ERR_lib_error_string(err));
         return -1;
     }
+    #if (OPENSSL_VERSION_NUMBER >= 0x10100000L)
+        /* Floor at TLS 1.2; RFC 8996 deprecates TLS 1.0/1.1 */
+        SSL_CTX_set_min_proto_version(ctx, TLS1_2_VERSION);
+    #endif
     httpsc->ctx = ctx;
     return 0;
 }
