@@ -46,7 +46,6 @@
 
 #include <openssl/evp.h>
 #include <openssl/hmac.h>
-#include <openssl/md5.h>
 #include <openssl/rand.h>
 #include <openssl/opensslv.h>
 

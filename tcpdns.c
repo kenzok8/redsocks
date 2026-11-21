@@ -336,24 +336,6 @@ static void tcpdns_pkt_from_client(int fd, short what, void *_arg)
 }
 
 /***********************************************************************
- * DNS Resolver Delay Checking
- */
-static void check_udpdns_delay()
-{
-}
-
-static void check_tcpdns_delay()
-{
-}
-
-static void check_dns_delay()
-{
-    check_udpdns_delay();
-    check_tcpdns_delay();
-}
-
-
-/***********************************************************************
  * Init / shutdown
  */
 static parser_entry tcpdns_entries[] =

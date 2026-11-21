@@ -24,6 +24,8 @@
 
 #if defined(USE_CRYPTO_OPENSSL)
 
+#include "md5.h"
+
 /* OpenSSL 3.0+ compatibility */
 #if OPENSSL_VERSION_NUMBER >= 0x30000000L
 #include <openssl/core_names.h>
@@ -384,11 +386,16 @@ static void merge_sort(uint8_t array[], int length,
 static unsigned char *enc_md5(const unsigned char *d, size_t n, unsigned char *md)
 {
 #if defined(USE_CRYPTO_OPENSSL)
+    /* Vendored MD5 (md5.c, already linked) instead of OpenSSL's
+       low-level MD5(), deprecated since OpenSSL 3.0. */
     static unsigned char m[16];
+    md5_state_t state;
     if (md == NULL) {
         md = m;
     }
-    MD5(d, n, md);
+    md5_init_rs(&state);
+    md5_append(&state, d, (int)n);
+    md5_finish_rs(&state, md);
     return md;
 #elif defined(USE_CRYPTO_MBEDTLS)
     static unsigned char m[16];
