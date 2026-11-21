@@ -33,6 +33,18 @@ The following libraries are required.
 
 Note: PolarSSL is no longer supported. Use mbedTLS instead.
 
+On Debian/Ubuntu systems, you can install the required build dependencies with:
+
+```
+sudo apt install -y libevent-dev libssl-dev
+```
+
+If you want to build with mbedTLS instead of OpenSSL:
+
+```
+sudo apt install -y libevent-dev libmbedtls-dev
+```
+
 ### Steps
 On general Linux, simply run command below to build with OpenSSL.
 
