@@ -14,7 +14,7 @@ SRCS := $(OBJS:.o=.c)
 CONF := config.h
 DEPS := .depend
 OUT := redsocks2
-VERSION := 0.73
+VERSION := 0.73.2
 OS := $(shell uname)
 
 LIBS := -levent
